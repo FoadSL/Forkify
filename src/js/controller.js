@@ -132,7 +132,6 @@ const init = function () {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  console.log('upadate');
 };
 
 init();
