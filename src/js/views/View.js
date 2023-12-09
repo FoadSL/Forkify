@@ -75,7 +75,7 @@ export default class View {
         <div class="error">
             <div>
               <svg>
-                <use href="src/img/${icons}#icon-alert-triangle"></use>
+                <use href="${icons}#icon-alert-triangle"></use>
               </svg>
             </div>
             <p>${message}</p>

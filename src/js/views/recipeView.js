@@ -35,6 +35,10 @@ class RecipeView extends View {
   }
 
   _generateMarkup() {
+    console.log(this._data.bookmarked ? '-fill' : '');
+    console.log(
+      `href="${icons}#icon-bookmark${this._data.bookmarked ? '-fill' : ''}`
+    );
     return `
       <figure class="recipe__fig">
           <img src="${this._data.image}" alt="${
