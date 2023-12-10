@@ -25,18 +25,24 @@ class PaginationView extends View {
 
     // Page 1, and there are other pages
     if (this._curPage === 1 && this._numPages > 1) {
-      return this._generateMarkupButton('next');
+      return (
+        this._generateMarkupNumPages() + this._generateMarkupButton('next')
+      );
     }
 
     // Last page
     if (this._curPage === this._numPages && this._numPages > 1) {
-      return this._generateMarkupButton('prev');
+      return (
+        this._generateMarkupButton('prev') + this._generateMarkupNumPages()
+      );
     }
 
     // Other page
     if (this._curPage < this._numPages) {
       return (
-        this._generateMarkupButton('prev') + this._generateMarkupButton('next')
+        this._generateMarkupButton('prev') +
+        this._generateMarkupNumPages() +
+        this._generateMarkupButton('next')
       );
     }
 
@@ -64,12 +70,8 @@ class PaginationView extends View {
       `;
     }
 
-    markup += `
-          <button class="btn--inline pagination__btn--middle">
-            <span>${this._curPage} of ${this._numPages}</span>
-          </button>
-    `;
-    // I should make a function for number of pages and call it in _generateMarkup() based on if
+    // I should make a function for number of pages and call it in _generateMarkup() based on if condition
+    // I shold also delete css comments
 
     if (direction === 'next') {
       goTo = this._data.page + 1;
@@ -86,6 +88,14 @@ class PaginationView extends View {
     }
 
     return markup;
+  }
+
+  _generateMarkupNumPages() {
+    return `
+          <button class="btn--inline pagination__btn--middle">
+            <span>${this._curPage} of ${this._numPages}</span>
+          </button>
+    `;
   }
 }
 
