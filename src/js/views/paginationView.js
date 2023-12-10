@@ -59,25 +59,16 @@ class PaginationView extends View {
     if (direction === 'prev') {
       goTo = this._data.page - 1;
       arrow = 'left';
-
-      markup += `
-        <button data-goto="${goTo}" class="btn--inline pagination__btn--${direction}">
-            <svg class="search__icon">
-              <use href="${icons}#icon-arrow-${arrow}"></use>
-            </svg>
-            <span>Page ${goTo}</span>
-        </button>
-      `;
     }
 
-    // I should make a function for number of pages and call it in _generateMarkup() based on if condition
     // I shold also delete css comments
 
     if (direction === 'next') {
       goTo = this._data.page + 1;
       arrow = 'right';
+    }
 
-      markup += `
+    return `
         <button data-goto="${goTo}" class="btn--inline pagination__btn--${direction}">
             <svg class="search__icon">
               <use href="${icons}#icon-arrow-${arrow}"></use>
@@ -85,9 +76,6 @@ class PaginationView extends View {
             <span>Page ${goTo}</span>
         </button>
       `;
-    }
-
-    return markup;
   }
 
   _generateMarkupNumPages() {
