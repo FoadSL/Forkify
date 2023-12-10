@@ -13,6 +13,11 @@
   margin-top: auto;
   padding: 0 3.5rem;
 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  justify-content: space-between;
+
   &::after {
     content: '';
     display: table;
@@ -21,10 +26,20 @@
 
   &__btn {
     &--prev {
-      float: left;
+      // float: left;
+      grid-column: 1 / 2;
     }
+
+    &--middle {
+      // float: left;
+      // margin: 0 auto;
+      padding: 0 1rem;
+      grid-column: 2 / 3;
+    }
+
     &--next {
-      float: right;
+      // float: right;
+      grid-column: 3 / 4;
     }
   }
 }
