@@ -84,6 +84,26 @@
     }
   }
 
+  &__input-box {
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__input {
+    // width: 30%;
+
+    &--quantity {
+      width: 30%;
+    }
+    &--unit {
+      width: 20%;
+    }
+    &--description {
+      width: 30%;
+    }
+  }
+
   &__heading {
     font-size: 2.25rem;
     font-weight: 700;
