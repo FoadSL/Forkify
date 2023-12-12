@@ -84,23 +84,34 @@
     }
   }
 
-  &__input-box {
-    background-color: aqua;
-    display: flex;
-    justify-content: space-between;
+  &__ingredient {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+    // justify-items: center;
+    column-gap: 1rem;
+
+    input {
+      justify-self: stretch;
+      width: 100%;
+    }
+
+    label {
+      font-size: 1.3rem;
+    }
   }
 
   &__input {
     // width: 30%;
+    padding: 0;
 
     &--quantity {
-      width: 30%;
+      width: 15%;
     }
     &--unit {
-      width: 20%;
+      width: 15%;
     }
     &--description {
-      width: 30%;
+      width: 50%;
     }
   }
 
