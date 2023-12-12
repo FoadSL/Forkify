@@ -37,7 +37,9 @@ class AddRecipeView extends View {
       // Using FormData (a modern browser API)
       const dataArr = [...new FormData(this)];
       const data = Object.fromEntries(dataArr);
-      handler(data);
+      console.log(dataArr);
+      console.log(data);
+      // handler(data);
     });
   }
 
