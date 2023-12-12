@@ -87,7 +87,6 @@
   &__ingredient {
     display: grid;
     grid-template-columns: 1fr 1fr 3fr;
-    // justify-items: center;
     column-gap: 1rem;
 
     input {
@@ -97,21 +96,6 @@
 
     label {
       font-size: 1.3rem;
-    }
-  }
-
-  &__input {
-    // width: 30%;
-    padding: 0;
-
-    &--quantity {
-      width: 15%;
-    }
-    &--unit {
-      width: 15%;
-    }
-    &--description {
-      width: 50%;
     }
   }
 
