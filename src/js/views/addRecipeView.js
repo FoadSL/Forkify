@@ -49,11 +49,12 @@ class AddRecipeView extends View {
           '[name="ing-description"]'
         ).value;
 
-        ingredients.push({
-          quantity: quantity ? +quantity : null,
-          unit,
-          description,
-        });
+        if (description)
+          ingredients.push({
+            quantity: quantity ? +quantity : null,
+            unit,
+            description,
+          });
       });
 
       handler(data, ingredients);
