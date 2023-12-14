@@ -37,9 +37,26 @@ class AddRecipeView extends View {
       // Using FormData (a modern browser API)
       const dataArr = [...new FormData(this)];
       const data = Object.fromEntries(dataArr);
-      console.log(dataArr);
       console.log(data);
-      // handler(data);
+
+      const ingredients = [];
+
+      const ingredientsElements = document.querySelectorAll('.ingredient');
+      ingredientsElements.forEach(ingEl => {
+        const quantity = ingEl.querySelector('[name="ing-quantity"]').value;
+        const unit = ingEl.querySelector('[name="ing-unit"]').value;
+        const description = ingEl.querySelector(
+          '[name="ing-description"]'
+        ).value;
+
+        ingredients.push({
+          quantity: quantity ? +quantity : null,
+          unit,
+          description,
+        });
+      });
+
+      handler(data, ingredients);
     });
   }
 
