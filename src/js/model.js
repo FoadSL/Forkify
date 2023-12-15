@@ -36,8 +36,6 @@ export const loadRecipe = async function (id) {
 
     state.recipe = createRecipeObject(data);
 
-    console.log(data);
-
     if (state.bookmarks.some(bookmark => bookmark.id === id))
       state.recipe.bookmarked = true;
     else state.recipe.bookmarked = false;
@@ -153,7 +151,7 @@ export const uploadRecipe = async function (newRecipe, ingredients) {
       servings: +newRecipe.servings,
       ingredients,
     };
-    console.log(recipe);
+
     const data = await AJAX(`${API_URL}?key=${KEY}`, recipe);
     state.recipe = createRecipeObject(data);
     addBookmark(state.recipe);

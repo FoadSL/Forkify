@@ -9,11 +9,14 @@ class AddRecipeView extends View {
   _overlay = document.querySelector('.overlay');
   _btnOpen = document.querySelector('.nav__btn--add-recipe');
   _btnClose = document.querySelector('.btn--close-modal');
+  _btnAddIngredient = document.querySelector('.upload__add-btn');
+  _btnDeleteIngredient = document.querySelector('.upload__delete-btn');
 
   constructor() {
     super();
     this._addHandlerShowWindow();
     this._addHandlerHideWindow();
+    this._addHandlerIngredients();
   }
 
   toggleWindow() {
@@ -30,6 +33,32 @@ class AddRecipeView extends View {
     this._overlay.addEventListener('click', this.toggleWindow.bind(this));
   }
 
+  _addHandlerIngredients() {
+    this._btnAddIngredient.addEventListener(
+      'click',
+      this._addHandlerIngredient.bind(this, 'add')
+    );
+    this._btnDeleteIngredient.addEventListener(
+      'click',
+      this._addHandlerIngredient.bind(this, 'delete')
+    );
+  }
+
+  _addHandlerIngredient(action, e) {
+    e.preventDefault();
+    const allIngredients = document.querySelectorAll('.ingredient');
+    const ingredientsNum = allIngredients.length;
+    if (action === 'add') {
+      const markup = this._generateIngredientMarkup(ingredientsNum);
+      e.currentTarget.insertAdjacentHTML('beforebegin', markup);
+    }
+    if (action === 'delete') {
+      const lastIngredient = allIngredients[ingredientsNum - 1];
+      lastIngredient.previousElementSibling.remove(); // Remove the label of ingredient
+      lastIngredient.remove(); // remove the ingredient
+    }
+  }
+
   addHandlerUpload(handler) {
     this._parentElement.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -37,7 +66,6 @@ class AddRecipeView extends View {
       // Using FormData (a modern browser API)
       const dataArr = [...new FormData(this)];
       const data = Object.fromEntries(dataArr);
-      console.log(data);
 
       const ingredients = [];
 
@@ -61,7 +89,35 @@ class AddRecipeView extends View {
     });
   }
 
-  _generateMarkup() {}
+  _generateIngredientMarkup(ingsNum) {
+    return `
+        <label>Ingredient ${++ingsNum}</label>
+        <div class="ingredient" data-ingredient-number="${++ingsNum}">
+            <div class="upload__ingredient">
+              <label for="quantity">Quantity</label>
+              <label for="unit">Unit</label>
+              <label for="description">Description</label>
+              <input
+                class="upload__input upload__input--quantity"
+                type="text"
+                name="ing-quantity"
+                placeholder=""
+              />
+              <input
+                class="upload__input upload__input--unit"
+                type="text"
+                name="ing-unit"
+                placeholder=""
+              />
+              <input
+                class="upload__input upload__input--description"
+                type="text"
+                name="ing-description"
+                placeholder=""
+              />
+            </div>
+        </div>`;
+  }
 }
 
 export default new AddRecipeView();
