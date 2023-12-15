@@ -99,7 +99,9 @@ class AddRecipeView extends View {
               <label for="description">Description</label>
               <input
                 class="upload__input upload__input--quantity"
-                type="text"
+                type="number"
+                step="any"
+                min="0"
                 name="ing-quantity"
                 placeholder=""
               />
@@ -114,6 +116,7 @@ class AddRecipeView extends View {
                 type="text"
                 name="ing-description"
                 placeholder=""
+                required
               />
             </div>
         </div>`;
