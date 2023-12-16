@@ -9,14 +9,11 @@ class AddRecipeView extends View {
   _overlay = document.querySelector('.overlay');
   _btnOpen = document.querySelector('.nav__btn--add-recipe');
   _btnClose = document.querySelector('.btn--close-modal');
-  _btnAddIngredient = document.querySelector('.upload__action-btn--add');
-  _btnDeleteIngredient = document.querySelector('.upload__action-btn--delete');
 
   constructor() {
     super();
     this._addHandlerShowWindow();
     this._addHandlerHideWindow();
-    // this._addHandlerIngredients();
     this._parentElement.addEventListener(
       'click',
       this._addHandlerIngredients.bind(this)
@@ -49,15 +46,14 @@ class AddRecipeView extends View {
   }
 
   _addHandlerIngredient(action, actionBox) {
-    console.log(actionBox);
     const allIngredients = document.querySelectorAll('.ingredient');
     const ingredientsNum = allIngredients.length;
 
     if (action === 'add') {
       const markup = this._generateIngredientMarkup(ingredientsNum);
-      console.log(actionBox);
       actionBox.parentElement.insertAdjacentHTML('beforeend', markup);
     }
+
     if (action === 'delete') {
       if (ingredientsNum === 1) return;
 
