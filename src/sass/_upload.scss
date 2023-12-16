@@ -7,7 +7,7 @@
   background-color: white;
   border-radius: 9px;
 
-  padding: 5rem 6rem;
+  padding: 5rem 5rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
   z-index: 1000;
   transition: all 0.5s;
@@ -45,13 +45,14 @@
 .upload {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: 4rem 6rem;
 
   &__column {
     display: grid;
     grid-template-columns: 1fr 2.8fr;
     align-items: center;
-    gap: 1.5rem 0.5rem;
+    gap: 1.5rem;
 
     & label {
       font-size: 1.5rem;
@@ -82,6 +83,27 @@
       justify-self: center;
       margin-top: 1rem;
     }
+
+    &--ingredients {
+      grid-template-columns: max-content 1fr max-content;
+      column-gap: auto;
+      align-items: center;
+    }
+  }
+
+  &__label {
+    margin-top: 1.5rem;
+  }
+
+  .upload__action {
+    display: flex;
+    gap: 0.2rem;
+    margin-top: 2rem;
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      fill: $color-primary;
+    }
   }
 
   &__ingredient {
@@ -109,6 +131,10 @@
     label {
       font-size: 1.3rem;
     }
+  }
+
+  &__action {
+    display: flex;
   }
 
   &__heading {

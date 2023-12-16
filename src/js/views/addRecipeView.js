@@ -9,14 +9,18 @@ class AddRecipeView extends View {
   _overlay = document.querySelector('.overlay');
   _btnOpen = document.querySelector('.nav__btn--add-recipe');
   _btnClose = document.querySelector('.btn--close-modal');
-  _btnAddIngredient = document.querySelector('.upload__add-btn');
-  _btnDeleteIngredient = document.querySelector('.upload__delete-btn');
+  _btnAddIngredient = document.querySelector('.upload__action-btn--add');
+  _btnDeleteIngredient = document.querySelector('.upload__action-btn--delete');
 
   constructor() {
     super();
     this._addHandlerShowWindow();
     this._addHandlerHideWindow();
-    this._addHandlerIngredients();
+    // this._addHandlerIngredients();
+    this._parentElement.addEventListener(
+      'click',
+      this._addHandlerIngredients.bind(this)
+    );
   }
 
   toggleWindow() {
@@ -33,29 +37,35 @@ class AddRecipeView extends View {
     this._overlay.addEventListener('click', this.toggleWindow.bind(this));
   }
 
-  _addHandlerIngredients() {
-    this._btnAddIngredient.addEventListener(
-      'click',
-      this._addHandlerIngredient.bind(this, 'add')
-    );
-    this._btnDeleteIngredient.addEventListener(
-      'click',
-      this._addHandlerIngredient.bind(this, 'delete')
-    );
+  _addHandlerIngredients(e) {
+    const actionBox = e.target.closest('.upload__action');
+    if (!actionBox) return;
+
+    if (e.target.closest('.upload__action-btn--add'))
+      this._addHandlerIngredient('add', actionBox);
+
+    if (e.target.closest('.upload__action-btn--delete'))
+      this._addHandlerIngredient('delete', actionBox);
   }
 
-  _addHandlerIngredient(action, e) {
-    e.preventDefault();
+  _addHandlerIngredient(action, actionBox) {
+    console.log(actionBox);
     const allIngredients = document.querySelectorAll('.ingredient');
     const ingredientsNum = allIngredients.length;
+
     if (action === 'add') {
       const markup = this._generateIngredientMarkup(ingredientsNum);
-      e.currentTarget.insertAdjacentHTML('beforebegin', markup);
+      console.log(actionBox);
+      actionBox.parentElement.insertAdjacentHTML('beforeend', markup);
     }
     if (action === 'delete') {
-      const lastIngredient = allIngredients[ingredientsNum - 1];
-      lastIngredient.previousElementSibling.remove(); // Remove the label of ingredient
-      lastIngredient.remove(); // remove the ingredient
+      if (ingredientsNum === 1) return;
+
+      const previousInput = actionBox.previousElementSibling;
+      const previousLabel = previousInput.previousElementSibling;
+      actionBox.remove();
+      previousInput.remove();
+      previousLabel.remove();
     }
   }
 
@@ -91,8 +101,8 @@ class AddRecipeView extends View {
 
   _generateIngredientMarkup(ingsNum) {
     return `
-        <label>Ingredient ${++ingsNum}</label>
-        <div class="ingredient" data-ingredient-number="${++ingsNum}">
+<label class="upload__label">Ingredient ${++ingsNum}</label>
+          <div class="ingredient" data-ingredient-number="${++ingsNum}">
             <div class="upload__ingredient">
               <label for="quantity">Quantity</label>
               <label for="unit">Unit</label>
@@ -104,22 +114,39 @@ class AddRecipeView extends View {
                 min="0"
                 name="ing-quantity"
                 placeholder=""
+                value="1"
               />
               <input
                 class="upload__input upload__input--unit"
                 type="text"
                 name="ing-unit"
                 placeholder=""
+                value="kg"
               />
               <input
                 class="upload__input upload__input--description"
                 type="text"
                 name="ing-description"
                 placeholder=""
+                value="rice"
+                required
                 required
               />
             </div>
-        </div>`;
+          </div>
+          <div class="upload__action">
+            <a href="#" class="upload__action-btn upload__action-btn--delete">
+              <svg>
+                <use href="${icons}#icon-minus-circle"></use>
+              </svg>
+            </a>
+            <a href="#" class="upload__action-btn upload__action-btn--add">
+              <svg>
+                <use href="${icons}#icon-plus-circle"></use>
+              </svg>
+            </a>
+          </div>
+        `;
   }
 }
 

@@ -281,9 +281,9 @@
           <input value="4" required name="servings" type="number" />
         </div>
 
-        <div class="upload__column">
+        <div class="upload__column upload__column--ingredients">
           <h3 class="upload__heading">Ingredients</h3>
-          <label>Ingredient 1</label>
+          <label class="upload__label">Ingredient 1</label>
           <div class="ingredient" data-ingredient-number="1">
             <div class="upload__ingredient">
               <label for="quantity">Quantity</label>
@@ -316,8 +316,22 @@
               />
             </div>
           </div>
+          <div class="upload__action">
+            <a href="#" class="upload__action-btn upload__action-btn--delete">
+              <svg>
+                <use href="src/img/icons.svg#icon-minus-circle"></use>
+              </svg>
+            </a>
+            <a href="#" class="upload__action-btn upload__action-btn--add">
+              <svg>
+                <use href="src/img/icons.svg#icon-plus-circle"></use>
+              </svg>
+            </a>
+          </div>
 
-          <label>Ingredient 2</label>
+          <!-- <a href=""></a> -->
+
+          <!-- <label>Ingredient 2</label>
           <div class="ingredient" data-ingredient-number="2">
             <div class="upload__ingredient">
               <label for="quantity">Quantity</label>
@@ -378,10 +392,15 @@
                 required
               />
             </div>
-          </div>
+          </div> -->
 
-          <a href="#" class="btn btn--round upload__add-btn">Add</a>
-          <a href="#" class="btn btn--round upload__delete-btn">Delete</a>
+          <!-- <a href="#" class="btn btn--round upload__add-btn">Add</a>
+          <a href="#" class="btn btn--round upload__delete-btn">Delete</a> -->
+          <!-- <a href="#" class="upload__delete-btn">
+            <svg>
+              <use href="src/img/icons.svg#icon-minus-circle"></use>
+            </svg>
+          </a> -->
         </div>
 
         <button class="btn upload__btn">
