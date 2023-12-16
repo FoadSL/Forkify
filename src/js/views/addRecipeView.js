@@ -101,8 +101,8 @@ class AddRecipeView extends View {
 
   _generateIngredientMarkup(ingsNum) {
     return `
-<label class="upload__label">Ingredient ${++ingsNum}</label>
-          <div class="ingredient" data-ingredient-number="${++ingsNum}">
+<label class="upload__label">Ingredient</label>
+          <div class="ingredient" data-ingredient-number="">
             <div class="upload__ingredient">
               <label for="quantity">Quantity</label>
               <label for="unit">Unit</label>
@@ -113,22 +113,19 @@ class AddRecipeView extends View {
                 step="any"
                 min="0"
                 name="ing-quantity"
-                placeholder=""
-                value="1"
+                placeholder=""                
               />
               <input
                 class="upload__input upload__input--unit"
                 type="text"
                 name="ing-unit"
-                placeholder=""
-                value="kg"
+                placeholder=""                
               />
               <input
                 class="upload__input upload__input--description"
                 type="text"
                 name="ing-description"
-                placeholder=""
-                value="rice"
+                placeholder=""                
                 required
                 required
               />
