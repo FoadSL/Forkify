@@ -94,7 +94,7 @@
       transform: translateY(-1px);
     }
 
-    &:focus {
+    svg:chi &:focus {
       outline: none;
     }
 
@@ -138,6 +138,27 @@
 
   &:hover,
   .nav__btn--bookmarks:hover + & {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.shopping {
+  padding: 1rem 0;
+  position: absolute;
+  // right: 0;
+  right: -2.5rem;
+  z-index: 10;
+  width: 40rem;
+  background-color: #fff;
+  box-shadow: 0 0.8rem 5rem 2rem rgba($color-grey-dark-1, 0.1);
+
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s 0.2s;
+
+  // &:hover,
+  .nav__btn--shopping:hover + & {
     visibility: visible;
     opacity: 1;
   }

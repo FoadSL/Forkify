@@ -28,6 +28,9 @@ const controlRecipes = async function () {
 
     // 2. Rendering recipe
     recipeView.render(model.state.recipe);
+
+    // TEST SHOPPING LIST
+    model.addShoppingList();
   } catch (err) {
     console.error(`${err} 💥`);
     recipeView.renderError();

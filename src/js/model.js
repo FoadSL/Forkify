@@ -12,7 +12,7 @@ export const state = {
     resultsPerPage: RES_PER_PAGE,
   },
   bookmarks: [],
-  shoppingList = []
+  shoppingList: [],
 };
 
 const createRecipeObject = function (data) {
@@ -141,4 +141,10 @@ export const uploadRecipe = async function (newRecipe, ingredients) {
   } catch (err) {
     throw err;
   }
+};
+
+export const addShoppingList = function () {
+  state.shoppingList.push(...state.recipe.ingredients);
+  state.recipe.addedToShopingList = true;
+  console.log(state.shoppingList);
 };
