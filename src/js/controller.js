@@ -29,10 +29,6 @@ const controlRecipes = async function () {
 
     // 2. Rendering recipe
     recipeView.render(model.state.recipe);
-
-    // TEST SHOPPING LIST
-    model.addShoppingList();
-    shoppingList.render(model.state.shoppingList);
   } catch (err) {
     console.error(`${err} 💥`);
     recipeView.renderError();
@@ -122,11 +118,17 @@ const controlAddRecipe = async function (newRecipe, ingredients) {
   }
 };
 
+const controlAddShopping = function () {
+  // TEST SHOPPING LIST
+  model.addToShoppingList();
+  shoppingList.render(model.state.shoppingList);
+};
+
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServing(controlServings);
-  recipeView.addHandlerAddShoppingList();
+  recipeView.addHandlerAddShoppingList(controlAddShopping);
   searchView.addHandlerSearch(controlSearchResults);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   paginationView.addHandlerClick(controlPagination);

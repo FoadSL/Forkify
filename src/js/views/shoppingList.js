@@ -10,7 +10,7 @@ class shoppingListList extends View {
       acc += `
         <li class="shopping__item">
             <div class="shopping__count">
-                <input type="number" value="${cur.quantity}" step="any" />
+                <input type="number" value="${cur.quantity || ''}" step="any" />
                 <p>${cur.unit || ''}</p>
             </div>
 
