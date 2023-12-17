@@ -124,6 +124,8 @@ const controlAddShopping = function () {
   shoppingList.render(model.state.shoppingList);
 };
 
+const controlShoppingIngreddient = function () {};
+
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
@@ -133,6 +135,7 @@ const init = function () {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  shoppingList.addHandlerDeleteIngredient();
 };
 
 init();

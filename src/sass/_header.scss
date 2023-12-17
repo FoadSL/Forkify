@@ -144,7 +144,7 @@
 }
 
 .shopping {
-  padding: 3rem 4rem;
+  // padding: 3rem 4rem;
   position: absolute;
   // right: 0;
   right: -2.5rem;
@@ -217,6 +217,7 @@
   }
 
   &__list {
+    padding: 0 4rem;
   }
 
   &__item {
@@ -280,7 +281,7 @@
     font-size: 1.3rem;
   }
 
-  &__delete {
+  &__delete-btn {
     height: 1.75rem;
     width: 1.75rem;
     border: none;
