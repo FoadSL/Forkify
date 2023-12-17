@@ -56,25 +56,43 @@
                       and add its ingredients to your shopping list.
                     </p>
                   </div> -->
-                  <li class="shopping__recipe">
-                    <a class="shopping__link" href="#23456">
-                      <figure class="shopping__fig">
-                        <img
-                          src="https://images.unsplash.com/photo-1613564834361-9436948817d1?q=80&w=2843&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                          alt="Test"
-                        />
-                      </figure>
-                      <h4 class="shopping__recipe-title">
-                        Pasta with Tomato Cream ...
-                      </h4>
-                      <div class="shopping__ingredients">
-                        <h3>Ingredients:</h3>
-                        <ul>
-                          <li class="shopping__item">1,kg,rice</li>
-                          <li class="shopping__item">1,kg,rice</li>
-                        </ul>
-                      </div>
-                    </a>
+
+                  <li class="shopping__item">
+                    <div class="shopping__count">
+                      <input type="number" value="500" step="any" />
+                      <p>g</p>
+                    </div>
+                    <p class="shopping__description">Pasta</p>
+                    <button class="shopping__delete">
+                      <svg>
+                        <use href="./src/img/icons.svg#icon-minus-circle"></use>
+                      </svg>
+                    </button>
+                  </li>
+                  <li class="shopping__item">
+                    <div class="shopping__count">
+                      <input type="number" value="0.5" step="any" />
+                      <p>tbsp</p>
+                    </div>
+                    <p class="shopping__description">Sea salt</p>
+                    <button class="shopping__delete">
+                      <svg>
+                        <use href="./src/img/icons.svg#icon-minus-circle"></use>
+                      </svg>
+                    </button>
+                  </li>
+                  <li class="shopping__item">
+                    <div class="shopping__count">
+                      <input type="number" value="0.25" step="any" />
+                      <p>cup</p>
+                    </div>
+
+                    <p class="shopping__description">Minced green onions</p>
+                    <button class="shopping__delete btn-tiny">
+                      <svg>
+                        <use href="./src/img/icons.svg#icon-minus-circle"></use>
+                      </svg>
+                    </button>
                   </li>
                 </ul>
               </div>

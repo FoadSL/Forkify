@@ -144,12 +144,12 @@
 }
 
 .shopping {
-  padding: 1rem 0;
+  padding: 3rem 4rem;
   position: absolute;
   // right: 0;
   right: -2.5rem;
   z-index: 10;
-  width: 40rem;
+  width: 30rem;
   background-color: #fff;
   box-shadow: 0 0.8rem 5rem 2rem rgba($color-grey-dark-1, 0.1);
 
@@ -204,43 +204,6 @@
     }
   }
 
-  &__fig {
-    // flex: 0 0 5.8rem;
-    border-radius: 50%;
-    overflow: hidden;
-    height: 5.8rem;
-    width: 5.8rem;
-    grid-column: 1 / 2;
-    grid-row: 1 / -1;
-    // margin-right: 2rem;
-    position: relative;
-    backface-visibility: hidden;
-
-    &::before {
-      content: '';
-      display: block;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-image: linear-gradient(
-        to right bottom,
-        $color-grad-1,
-        $color-grad-2
-      );
-      opacity: 0.4;
-    }
-
-    img {
-      display: block;
-      width: 6rem;
-      height: 6rem;
-      object-fit: cover;
-      transition: all 0.3s;
-    }
-  }
-
   &__ingredients {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -253,28 +216,16 @@
     color: $color-grey-dark-1;
   }
 
-  ul {
-    justify-self: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    li {
-      font-size: 1.5rem;
-      color: $color-grey-dark-2;
-    }
+  &__list {
   }
 
   &__item {
-    // display: flex;
-    // align-items: center;
-    // padding: 1.5rem 3.25rem;
-    // grid-column: 2 / 3;
-    // transition: all 0.3s;
-    // border-right: 1px solid #fff;
-    text-decoration: none;
-    list-style: none;
-
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $color-grey-light-2;
+    padding: 1.3rem 0;
+    // text-decoration: none;
+    // list-style: none;
     // &:hover {
     //   background-color: $color-grey-light-1;
     //   transform: translateY(-2px);
@@ -283,5 +234,67 @@
     // &--active {
     //   background-color: $color-grey-light-1;
     // }
+
+    &:hover button {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__count {
+    // width: 10rem;
+    flex: 0 0 8rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid $color-grey-light-2;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    color: inherit;
+    cursor: pointer;
+
+    input {
+      font-size: 1.2rem;
+      text-align: center;
+      border: none;
+      width: 3.8rem;
+      border-radius: 3px;
+      // margin-right: 1.5rem;
+    }
+
+    input:focus {
+      border: none;
+      outline: none;
+      background-color: $color-grey-light-2;
+    }
+
+    input:focus-visible {
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__description {
+    margin-left: 2rem;
+    flex: 1;
+    font-size: 1.3rem;
+  }
+
+  &__delete {
+    height: 1.75rem;
+    width: 1.75rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: $color-primary;
+    }
   }
 }
