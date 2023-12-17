@@ -6,6 +6,7 @@ import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
+import shoppingList from './views/shoppingList.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -31,6 +32,7 @@ const controlRecipes = async function () {
 
     // TEST SHOPPING LIST
     model.addShoppingList();
+    shoppingList.render(model.state.shoppingList);
   } catch (err) {
     console.error(`${err} 💥`);
     recipeView.renderError();
