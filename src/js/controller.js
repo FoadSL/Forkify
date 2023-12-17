@@ -126,6 +126,7 @@ const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServing(controlServings);
+  recipeView.addHandlerAddShoppingList();
   searchView.addHandlerSearch(controlSearchResults);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   paginationView.addHandlerClick(controlPagination);

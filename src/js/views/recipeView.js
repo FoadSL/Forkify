@@ -4,7 +4,6 @@ import View from './View.js';
 import icons from 'url:../../img/icons.svg'; // Parcel 2
 // ('../../img/icons.svg');
 import { Fraction } from 'fractional';
-import { mark } from 'regenerator-runtime';
 
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
@@ -30,6 +29,15 @@ class RecipeView extends View {
     this._parentElement.addEventListener('click', function (e) {
       const btnBookmark = e.target.closest('.btn--bookmark');
       if (!btnBookmark) return;
+      handler();
+    });
+  }
+
+  addHandlerAddShoppingList(handler) {
+    // document.querySelector('.recipe__shopping-btn').addEventListener('click');
+    this._parentElement.addEventListener('click', function (e) {
+      const btnAddShopping = e.target.closest('.recipe__shopping-btn');
+      if (!btnAddShopping) return;
       handler();
     });
   }
@@ -104,6 +112,14 @@ class RecipeView extends View {
             ${this._generateMarkupIngredients()}
 
           </ul>
+
+
+                <button class="btn--small recipe__shopping-btn">
+                    <svg class="recipe__icon">
+                        <use href="${icons}#icon-shopping-cart"></use>
+                    </svg>
+                    <span>Add to shopping list</span>
+                </button>
         </div>
 
         <div class="recipe__directions">

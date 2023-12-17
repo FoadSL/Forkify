@@ -17,7 +17,7 @@ class shoppingListList extends View {
             <p class="shopping__description">${cur.description}</p>
             <button class="shopping__delete">
                 <svg>
-                <use href="${icons}#icon-minus-circle"></use>
+                <use href="${icons}#icon-circle-with-cross"></use>
                 </svg>
             </button>
         </li>
