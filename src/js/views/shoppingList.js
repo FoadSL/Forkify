@@ -3,6 +3,9 @@ import icons from 'url:../../img/icons.svg';
 
 class shoppingListList extends View {
   _parentElement = document.querySelector('.shopping');
+  _message = `Find a nice recipe, <br />
+    and add its ingredients to your shopping list.`;
+  _errorMessage = `Your shopping list is empty now !`;
 
   addHandlerDeleteItem(handler) {
     this._parentElement.addEventListener('click', function (e) {
@@ -10,6 +13,7 @@ class shoppingListList extends View {
       if (!btnDelete) return;
       const shoppingItemNum =
         btnDelete.closest('.shopping__item').dataset.ingredientNumber;
+
       handler(+shoppingItemNum);
     });
   }
