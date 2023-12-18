@@ -146,7 +146,6 @@ export const uploadRecipe = async function (newRecipe, ingredients) {
 export const addToShoppingList = function () {
   state.shoppingList.push(...state.recipe.ingredients);
   state.recipe.addedToShopingList = true;
-  console.log(state.shoppingList);
 };
 
 export const removeFromShoppingList = function (itemNum) {

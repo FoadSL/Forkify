@@ -125,7 +125,7 @@ const controlAddShopping = function () {
 
 const controlShoppingDeleteItem = function (itemNum) {
   model.removeFromShoppingList(itemNum);
-  shoppingList.update(model.state.shoppingList);
+  shoppingList.render(model.state.shoppingList);
 };
 
 const init = function () {

@@ -8,20 +8,13 @@ class shoppingListList extends View {
     this._parentElement.addEventListener('click', function (e) {
       const btnDelete = e.target.closest('.shopping__delete-btn');
       if (!btnDelete) return;
-      console.log(btnDelete);
       const shoppingItemNum =
         btnDelete.closest('.shopping__item').dataset.ingredientNumber;
-      console.log(shoppingItemNum);
       handler(+shoppingItemNum);
-
-      const parentItem = btnDelete.closest('.shopping__item');
-      console.log(parentItem);
-      // parentItem.remove();
     });
   }
 
   _generateMarkup() {
-    console.log(this._data);
     let markup = ``;
 
     for (const [i, ing] of this._data.entries()) {
