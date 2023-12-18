@@ -4,7 +4,7 @@ import icons from 'url:../../img/icons.svg';
 class shoppingListList extends View {
   _parentElement = document.querySelector('.shopping');
 
-  addHandlerDeleteIngredient(handler) {
+  addHandlerDeleteItem(handler) {
     this._parentElement.addEventListener('click', function (e) {
       const btnDelete = e.target.closest('.shopping__delete-btn');
       if (!btnDelete) return;
@@ -12,6 +12,11 @@ class shoppingListList extends View {
       const shoppingItemNum =
         btnDelete.closest('.shopping__item').dataset.ingredientNumber;
       console.log(shoppingItemNum);
+      handler(+shoppingItemNum);
+
+      const parentItem = btnDelete.closest('.shopping__item');
+      console.log(parentItem);
+      // parentItem.remove();
     });
   }
 

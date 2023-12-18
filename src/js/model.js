@@ -148,3 +148,10 @@ export const addToShoppingList = function () {
   state.recipe.addedToShopingList = true;
   console.log(state.shoppingList);
 };
+
+export const removeFromShoppingList = function (itemNum) {
+  console.log(itemNum);
+  console.log(state.shoppingList);
+  state.shoppingList.splice(itemNum, 1);
+  console.log(state.shoppingList);
+};
