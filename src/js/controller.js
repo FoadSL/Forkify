@@ -119,7 +119,6 @@ const controlAddRecipe = async function (newRecipe, ingredients) {
 };
 
 const controlAddShopping = function () {
-  // TEST SHOPPING LIST
   model.addToShoppingList();
   shoppingList.render(model.state.shoppingList);
 };
