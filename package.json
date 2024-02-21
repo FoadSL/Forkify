@@ -13,7 +13,6 @@
     "parcel": "^2.10.3"
   },
   "dependencies": {
-    "@parcel/watcher-darwin-arm64": "^2.3.0",
     "core-js": "^3.33.3",
     "fractional": "^1.0.0",
     "regenerator-runtime": "^0.14.0"
